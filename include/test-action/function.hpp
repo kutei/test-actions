@@ -25,6 +25,8 @@ int function_a(int a);
  */
 int function_b(int &start);
 
+namespace testspace
+{
 /**
  * classのlinter確認用
  *
@@ -32,17 +34,15 @@ int function_b(int &start);
  *   - class構文
  *   - namespace構文
  */
-namespace testspace{
-class TestClass{
-    public:
+class TestClass
+{
+public:
     TestClass();
     int normal_function(int a);
-    int inline_function(int a, int b){
-        return a + b;
-    }
+    int inline_function(int a, int b) { return a + b; }
 
-    private:
+private:
     int prv_normal_function(int a);
     int prv_val;
 };
-} // endspace: testspace
+}  // namespace testspace

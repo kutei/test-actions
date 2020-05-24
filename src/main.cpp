@@ -10,6 +10,6 @@ int main(int argc, char const *argv[])
 {
     int a = function_a(2);
     int b = function_b(a);
-    std::cout << a << "," << b <<std::endl;
+    std::cout << a << "," << b << std::endl;
     return 0;
 }
