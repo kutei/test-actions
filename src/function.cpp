@@ -61,3 +61,19 @@ int function_b(int &start){
 
     return sum;
 }
+
+namespace testspace{
+    TestClass::TestClass(){
+        std::cout << "call Constructor" << std::endl;
+    }
+int TestClass::normal_function(int a){
+    std::cout << "call normal_function" << std::endl;
+    return prv_normal_function(a);
+}
+
+int TestClass::prv_normal_function(int a){
+    std::cout << "call prv_normal_function" << std::endl;
+    prv_val += a;
+    return prv_val;
+}
+} // endspace: testspace

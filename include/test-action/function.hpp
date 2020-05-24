@@ -24,3 +24,25 @@ int function_a(int a);
  * @return 何かしらの値
  */
 int function_b(int &start);
+
+/**
+ * classのlinter確認用
+ *
+ * 以下の項目を記載している。
+ *   - class構文
+ *   - namespace構文
+ */
+namespace testspace{
+class TestClass{
+    public:
+    TestClass();
+    int normal_function(int a);
+    int inline_function(int a, int b){
+        return a + b;
+    }
+
+    private:
+    int prv_normal_function(int a);
+    int prv_val;
+};
+} // endspace: testspace
