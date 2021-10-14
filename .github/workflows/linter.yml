@@ -1,4 +1,4 @@
-name: python-build
+name: linter
 
 on: push
 
@@ -12,6 +12,7 @@ jobs:
         run: pip3 install pylint
       - name: linter check
         run: pylint src/test_actions
+
   pycodestyle-check:
     runs-on: ubuntu-20.04
     steps:
@@ -21,3 +22,17 @@ jobs:
         run: pip3 install pycodestyle
       - name: linter check
         run: pycodestyle src/test_actions
+
+  clang-format-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check version
+        run: |
+          bash --version
+          echo ""
+          clang-format --version
+      - name: checkout branch
+        uses: actions/checkout@master
+      - name: clang-check
+        run: |
+          ./scripts/formatting.sh src include test
