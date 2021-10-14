@@ -1,0 +1,19 @@
+name: python-build
+
+on: push
+
+jobs:
+  pylint-check:
+    runs-on: ubuntu-focal
+    steps:
+      - name: checkout branch
+        uses: actions/checkout@master
+      - name: linter check
+        run: pylint src/scripts
+  pycodestyle-check:
+    runs-on: ubuntu-focal
+    steps:
+      - name: checkout branch
+        uses: actions/checkout@master
+      - name: linter check
+        run: pycodestyle src/scripts
