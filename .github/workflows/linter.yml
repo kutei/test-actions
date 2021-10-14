@@ -12,10 +12,11 @@ jobs:
         run: pip3 install pylint
       - name: linter check
         run: |
+          min_score=8.0
           pylint src/test_actions | tee /tmp/pylint_result.txt || true
           score=$(cat /tmp/pylint_result.txt | grep "Your code has been rated at" | cut -d" " -f7 | cut -d"/" -f1)
-          if [ $(echo "$score < 8.0" | bc) -eq 1 ]; then
-            echo "pylint score must be >= 8.0"
+          if [ $(echo "$score < $min_score" | bc) -eq 1 ]; then
+            echo "error: pylint score must be >= $min_score"
             exit 1
           fi
 
