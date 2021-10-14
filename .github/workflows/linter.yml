@@ -11,7 +11,10 @@ jobs:
       - name: setup linter
         run: pip3 install pylint
       - name: linter check
-        run: pylint src/test_actions
+        run: |
+          pylint src/test_actions | tee /tmp/pylint_result.txt || true
+          score=$(cat /tmp/pylint_result.txt | grep "Your code has been rated at" | cut -d" " -f7 | cut -d"/" -f1)
+          if [ $(echo "$score < 8.0" | bc) -eq 1 ]; then false; else true; fi
 
   pycodestyle-check:
     runs-on: ubuntu-20.04

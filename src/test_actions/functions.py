@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import torch
 import os
 import numpy as np
 import platform
@@ -30,6 +31,14 @@ def warning_func():
     var7 = var6
     var8 = var7
     var9 = var8
+    vara = var8
+    varb = vara
+    varc = varb
+    vard = varc
+    vare = vard
+    varf = vare
+    varg = varf
+    vare = varg
 
     # hyper nested
     for n in range(10):
