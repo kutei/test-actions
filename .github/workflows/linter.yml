@@ -14,7 +14,10 @@ jobs:
         run: |
           pylint src/test_actions | tee /tmp/pylint_result.txt || true
           score=$(cat /tmp/pylint_result.txt | grep "Your code has been rated at" | cut -d" " -f7 | cut -d"/" -f1)
-          if [ $(echo "$score < 8.0" | bc) -eq 1 ]; then false; else true; fi
+          if [ $(echo "$score < 8.0" | bc) -eq 1 ]; then
+            echo "pylint score must be >= 8.0"
+            exit 1
+          fi
 
   pycodestyle-check:
     runs-on: ubuntu-20.04
