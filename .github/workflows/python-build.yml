@@ -11,7 +11,7 @@ jobs:
       - name: setup linter
         run: pip3 install pylint
       - name: linter check
-        run: pylint src/scripts
+        run: pylint src/test_actions
   pycodestyle-check:
     runs-on: ubuntu-20.04
     steps:
@@ -20,4 +20,4 @@ jobs:
       - name: setup linter
         run: pip3 install pycodestyle
       - name: linter check
-        run: pycodestyle src/scripts
+        run: pycodestyle src/test_actions
